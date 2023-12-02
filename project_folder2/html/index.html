@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Node.js and Python Integration</title>
+</head>
+<body>
+    <h1>Node.js and Python Integration</h1>
+    <button onclick="getDataFromPython()">Get Data from Python</button>
+    <div id="result"></div>
+
+    <script>
+        async function getDataFromPython() {
+            try {
+                const response = await fetch('/getFromPython');
+                const result = await response.text();
+                document.getElementById('result').innerHTML = result;
+            } catch (error) {
+                console.error(error);
+                document.getElementById('result').innerHTML = 'Error occurred';
+            }
+        }
+    </script>
+</body>
+</html>
